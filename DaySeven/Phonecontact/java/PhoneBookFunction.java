@@ -5,19 +5,19 @@ public class PhoneBookFunction{
 	ArrayList<String> firstName = new ArrayList<String>();
 	ArrayList<String> lastName = new ArrayList<String>();
 	ArrayList<String> email = new ArrayList<String>();
-	ArrayList<Integer> phoneBook = new ArrayList<Integer>();
+	ArrayList<String> phoneBook = new ArrayList<String>();
 	public void addContact(){
 		System.out.println("How many contact do you want to store: ");
 		int numberOfcontactToBeStored = collector.nextInt();
 		for(int count = 0; count<numberOfcontactToBeStored;count++){
 			System.out.println("Enter first name: ");
-			firstName.add(collector.nextLine());
+			firstName.add(collector.next());
 			System.out.println("Enter last name: ");
-			lastName.add(collector.nextLine());
+			lastName.add(collector.next());
 			System.out.println("Enter email: ");
-			email.add(collector.nextLine());
+			email.add(collector.next());
 			System.out.println("Enter phoneNumber: ");
-			phoneBook.add(collector.nextInt());
+			phoneBook.add(collector.next());
 		}
 	}
 	public void removeContact(){
@@ -54,7 +54,7 @@ public class PhoneBookFunction{
 		String lastNameOfContactToSearchFor = collector.next();
 		int counter = 0;
 		for(int count = 0; count<lastName.size();count++){
-			if(phoneBook.get(count)==lastNameOfContactToSearchFor){
+			if(lastName.get(count).equals(lastNameOfContactToSearchFor)){
 				System.out.printf("First Name: %s%nLast Name: %s%nPhone Number: %d%nEmail: %s%n",firstName.get(count),lastName.get(count),phoneBook.get(count),email.get(count));
 				counter++;
 			}
@@ -63,10 +63,10 @@ public class PhoneBookFunction{
 	}
 	public void findContactByPhoneNumber(){
 		System.out.println("Enter phone number: ");
-		int  phoneNumberCheacking = collector.nextInt();
+		String  phoneNumberCheacking = collector.next();
 		int counter = 0;
 		for(int count = 0; count<lastName.size();count++){
-			if(phoneBook.get(count).equals(lastNameOfContactToBeDeleted)){
+			if(phoneBook.get(count).equals(phoneNumberCheacking)){
 				System.out.printf("First Name: %s%nLast Name: %s%nPhone Number: %d%nEmail: %s%n",firstName.get(count),lastName.get(count),phoneBook.get(count),email.get(count));
 				counter++;
 			}
@@ -80,18 +80,18 @@ public class PhoneBookFunction{
 		String lastNameOfContactToBeEdited = collector.next();
 		int counter = 0;
 		for(int count = 0; count<firstName.size();count++){
-			if(firstName.get(count).equals(firstNameOfContactToBeEdited) && lastName.get(count).equal(lastNameOfContactToBeEdited)){
+			if(firstName.get(count).equals(firstNameOfContactToBeEdited) && lastName.get(count).equals(lastNameOfContactToBeEdited)){
 				System.out.println("Enter first name: ");
 				String newFirstName = collector.next();
 				firstName.set(count,newFirstName);
 				System.out.println("Enter last name: ");
 				String newLastName = collector.next();
 				lastName.set(count,newLastName);
-				int newPhoneBook = collector.next();
+				String newPhoneBook = collector.next();
 				phoneBook.set(count,newPhoneBook);
 				System.out.println("Enter email: ");
 				String newEmail = collector.next();
-				email.set(count,newPhoneBook);
+				email.set(count,newEmail);
 			}	
 		}	
 	}

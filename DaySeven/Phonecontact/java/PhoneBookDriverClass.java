@@ -2,6 +2,7 @@ import java.util.Scanner;
 public class PhoneBookDriverClass{
 	public static void main(String[] args){
 		Scanner collector = new Scanner(System.in);
+		PhoneBookFunction phoneBook = new PhoneBookFunction();
 		String phoneBookOption = """
 			1 -> Add contact
 			2 -> Remove contact
@@ -13,11 +14,11 @@ public class PhoneBookDriverClass{
 		System.out.println(phoneBookOption);
 			int userinput = collector.nextInt();
 		switch(userinput){
-		case 1: addContact();
-		case 2: removeContact();
-		case 3: findContactByPhoneNumber();
-		case 4: findContactByFirstName();
-		case 5: findContactByLastName();
+		case 1: phoneBook.addContact();
+		case 2: phoneBook.removeContact();
+		case 3: phoneBook.findContactByPhoneNumber();
+		case 4: phoneBook.findContactByFirstName();
+		case 5: phoneBook.findContactByLastName();
 		case 6: System.out.println("Exit");
 		}
 	}
