@@ -10,27 +10,27 @@ public class PhoneBookFunction{
 		int numberOfcontactToBeStored = collector.nextInt();
 		for(int count = 0; count<numberOfcontactToBeStored;count++){
 			System.out.println("Enter first name: ");
-			firstName[count] = collector.nextLine();
+			firstName.add(collector.nextLine());
 			System.out.println("Enter last name: ");
-			lastName[count] = collector.nextLine();
+			lastName.add(collector.nextLine());
 			System.out.println("Enter email: ");
-			email[count] = collector.nextLine();
+			email.add(collector.nextLine());
 			System.out.println("Enter phoneNumber: ");
-			lastName[count] = collector.nextInt();
+			lastName.add(collector.nextInt());
 		}
 	}
 	public void removeContact(){
 		System.out.println("Enter the first name of the contact: ");
-		String firstNameOfContactToBeDeleted = collector.next();
+		String firstNameOfContactToBeDeleted.add(collector.next());
 		System.out.println("Enter the last name of the contact: ");
-		String lastNameOfContactToBeDeleted = collector.next();
+		String lastNameOfContactToBeDeleted.add(collector.next());
 		int counter = 0;
 		for(int count = 0; count<firstName.size();count++){
-			if(firstName[count].equals(firstNameOfContactToBeDeleted) && lastName[count].equals(lastNameOfContactToBeDeleted)){
-				firstName[count] = "";
-				lastName[count] = "";
-				phoneBook[count] = 0;
-				email[count] = "";
+			if(firstName.get(count).equals(firstNameOfContactToBeDeleted) && lastName.get(count).equals(lastNameOfContactToBeDeleted)){
+				firstName.remove(count);
+				lastName.remove(count);
+				phoneBook.remove(count);
+				email.remove(count);
 				counter++;
 			}
 			if(counter<firstName.size()-1)System.out.println("Can,t delete a contact that is not in the phone book input correct names next time");
@@ -41,8 +41,8 @@ public class PhoneBookFunction{
 		String firstNameOfContactToSearchfor = collector.next();
 		int counter = 0;
 		for(int count = 0; count<firstName.size();count++){
-			if(firstName[count].equals(firstNameOfContactToBeDeleted)){
-				System.out.printf("First Name: %s%nLast Name: %s%nPhone Number: %d%nEmail: %s%n",firstName[count],lastName[count],phoneBook[count],email[count]);
+			if(firstName.get(count).equals(firstNameOfContactToBeDeleted)){
+				System.out.printf("First Name: %s%nLast Name: %s%nPhone Number: %d%nEmail: %s%n",firstName.get(count),lastName.get(count),phoneBook.get(count),email.get(count));
 				counter++;
 			}
 			if(counter == firstName.size()-1)System.out.print("Contact Not found");
@@ -53,11 +53,21 @@ public class PhoneBookFunction{
 		String lastNameOfContactToSearchfor = collector.next();
 		int counter = 0;
 		for(int count = 0; count<lastName.size();count++){
-			if(lastName[count].equals(lastNameOfContactToBeDeleted)){
-				System.out.printf("First Name: %s%nLast Name: %s%nPhone Number: %d%nEmail: %s%n",firstName[count],lastName[count],phoneBook[count],email[count]);
+			if(lastName.get(count).equals(lastNameOfContactToBeDeleted)){
+				System.out.printf("First Name: %s%nLast Name: %s%nPhone Number: %d%nEmail: %s%n",firstName.get(count),lastName.get(count),phoneBook.get(count),email.get(count));
 				counter++;
 			}
 			if(counter == firstName.size()-1)System.out.print("Contact Not found");
 		}
+	}
+	public void editContact(){
+		System.out.println("Enter the first name of the contact: ");
+		String firstNameOfContactToBeEdited = collector.next();
+		System.out.println("Enter the last name of the contact: ");
+		String lastNameOfContactToBeEdited = collector.next();
+		int counter = 0;
+		for(int count = 0; count<firstName.size();count++){
+			if(firstNameOfContactToBeEdited.equal(count) && )
+		}	
 	}
 }	
