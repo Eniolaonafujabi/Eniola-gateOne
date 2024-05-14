@@ -22,78 +22,88 @@ public class PhoneBookFunction{
 			System.out.println("Do you want to continue");
 			String ifUserWantToContinue = collector.next();
 			if(ifUserWantToContinue.equals("yes"))phoneBookOption();
+			if(ifUserWantToContinue.equals("no"))System.out.println("EXIT");
 	}
 	public void removeContact(){
 		System.out.println("Enter the first name of the contact: ");
 		String firstNameOfContactToBeDeleted = collector.next();
 		System.out.println("Enter the last name of the contact: ");
 		String lastNameOfContactToBeDeleted = collector.next();
-		int counter = 0;
+		int counter = firstName.size()-1;
+		//if(firstName.size() == 0)System.out.println("Can,t delete a contact that is not in the phone book input correct names next time");
 		for(int count = 0; count<firstName.size();count++){
 			if(firstName.get(count).equals(firstNameOfContactToBeDeleted) && lastName.get(count).equals(lastNameOfContactToBeDeleted)){
 				firstName.remove(count);
 				lastName.remove(count);
 				phoneBook.remove(count);
 				email.remove(count);
-				counter++;
+				counter--;
 			}
-			if(counter<firstName.size()-1)System.out.println("Can,t delete a contact that is not in the phone book input correct names next time");
 		}
+			if(counter==firstName.size()-1)System.out.println("Can,t delete a contact that is not in the phone book input correct names next time");
 			System.out.println("Do you want to continue");
 			String ifUserWantToContinue = collector.next();
 			if(ifUserWantToContinue.equals("yes"))phoneBookOption();
+			if(ifUserWantToContinue.equals("no"))System.out.println("EXIT");
 	}
 	public void findContactByFirstName(){
 		System.out.println("Enter the first name of the contact: ");
 		String firstNameOfContactToSearchfor = collector.next();
-		int counter = 0;
+		int counter = firstName.size()-1;
+		if(firstName.size() == 0)System.out.println("Can,t delete a contact that is not in the phone book input correct names next time");
 		for(int count = 0; count<firstName.size();count++){
 			if(firstName.get(count).equals(firstNameOfContactToSearchfor)){
 				System.out.printf("First Name: %s%nLast Name: %s%nPhone Number: %s%nEmail: %s%n",firstName.get(count),lastName.get(count),phoneBook.get(count),email.get(count));
-				counter++;
+				counter--;
 			}
-			if(counter == firstName.size()-1)System.out.print("Contact Not found");
 		}
+			if(counter == firstName.size()-1)System.out.println("Contact Not found");
 			System.out.println("Do you want to continue");
 			String ifUserWantToContinue = collector.next();
 			if(ifUserWantToContinue.equals("yes"))phoneBookOption();
+			if(ifUserWantToContinue.equals("no"))System.out.println("EXIT");
 	}
 	public void findContactByLastName(){
 		System.out.println("Enter the last name of the contact: ");
 		String lastNameOfContactToSearchFor = collector.next();
-		int counter = 0;
+		int counter = firstName.size()-1;
+		if(firstName.size() == 0)System.out.println("Can,t delete a contact that is not in the phone book input correct names next time");
 		for(int count = 0; count<lastName.size();count++){
 			if(lastName.get(count).equals(lastNameOfContactToSearchFor)){
 				System.out.printf("First Name: %s%nLast Name: %s%nPhone Number: %s%nEmail: %s%n",firstName.get(count),lastName.get(count),phoneBook.get(count),email.get(count));
-				counter++;
+				counter--;
 			}
-			if(counter == firstName.size()-1)System.out.print("Contact Not found");
 		}
+			if(counter == firstName.size()-1)System.out.println("Contact Not found");
 			System.out.println("Do you want to continue");
 			String ifUserWantToContinue = collector.next();
 			if(ifUserWantToContinue.equals("yes"))phoneBookOption();
+			if(ifUserWantToContinue.equals("no"))System.out.println("EXIT");
 	}
 	public void findContactByPhoneNumber(){
 		System.out.println("Enter phone number: ");
 		String  phoneNumberCheacking = collector.next();
-		int counter = 0;
+		int counter = firstName.size()-1;
+		if(firstName.size() == 0)System.out.println("Can,t delete a contact that is not in the phone book input correct names next time");
 		for(int count = 0; count<lastName.size();count++){
 			if(phoneBook.get(count).equals(phoneNumberCheacking)){
 				System.out.printf("First Name: %s%nLast Name: %s%nPhone Number: %s%nEmail: %s%n",firstName.get(count),lastName.get(count),phoneBook.get(count),email.get(count));
-				counter++;
+				counter--;
 			}
-			if(counter == firstName.size()-1)System.out.print("Contact Not found");
 		}
+			if(counter == firstName.size()-1)System.out.println("Contact Not found");
 			System.out.println("Do you want to continue");
 			String ifUserWantToContinue = collector.next();
 			if(ifUserWantToContinue.equals("yes"))phoneBookOption();
+			if(ifUserWantToContinue.equals("no"))System.out.println("EXIT");
 	}
 	public void editContact(){
 		System.out.println("Enter the first name of the contact: ");
 		String firstNameOfContactToBeEdited = collector.next();
 		System.out.println("Enter the last name of the contact: ");
 		String lastNameOfContactToBeEdited = collector.next();
-		int counter = 0;
+		int counter = firstName.size();
+		if(firstName.size() == 0)System.out.println("Can,t delete a contact that is not in the phone book input correct names next time");
 		for(int count = 0; count<firstName.size();count++){
 			if(firstName.get(count).equals(firstNameOfContactToBeEdited) && lastName.get(count).equals(lastNameOfContactToBeEdited)){
 				System.out.println("Enter first name: ");
@@ -107,11 +117,14 @@ public class PhoneBookFunction{
 				System.out.println("Enter email: ");
 				String newEmail = collector.next();
 				email.set(count,newEmail);
+				counter--;
 			}	
 		}
+			if(counter == firstName.size()-1)System.out.println("Contact Not found");
 			System.out.println("Do you want to continue");
 			String ifUserWantToContinue = collector.next();
 			if(ifUserWantToContinue.equals("yes"))phoneBookOption();	
+			if(ifUserWantToContinue.equals("no"))System.out.println("EXIT");
 	}
 
 
