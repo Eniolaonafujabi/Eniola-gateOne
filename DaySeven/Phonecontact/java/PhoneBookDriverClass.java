@@ -15,10 +15,15 @@ public class PhoneBookDriverClass{
 			int userinput = collector.nextInt();
 		switch(userinput){
 		case 1: phoneBook.addContact();
+		break;
 		case 2: phoneBook.removeContact();
+		break;
 		case 3: phoneBook.findContactByPhoneNumber();
+		break;
 		case 4: phoneBook.findContactByFirstName();
+		break;
 		case 5: phoneBook.findContactByLastName();
+		break;
 		case 6: System.out.println("Exit");
 		}
 	}
