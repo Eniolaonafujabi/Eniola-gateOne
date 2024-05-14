@@ -29,7 +29,25 @@ public class AccountMethod{
 			if(firstName.get(count).equals(accountFirstName)){
 				System.out.println("Enter pin");
 				String pinInputed = collector.next();
+				for(int counter = 0; counter<pin.size();counter++){
+					if(pin.get(counter).equals(pinInputed)){
+						firstName.remove(counter)
+						lastName.remove(counter)
+						pin.remove(counter);	
+					}
+				}
 			}	
 		}
+	}
+	public void depositMoney(){
+		System.out.println("Enter your account first name: ");
+		String accountFirstName = collector.next();
+		System.out.println("Enter your pin: ");
+		String pinInputed = collector.next();
+		int counter = 0;
+		for(int count = 0; count<firstName.size();count++){
+			
+
+		}		
 	}
 }
