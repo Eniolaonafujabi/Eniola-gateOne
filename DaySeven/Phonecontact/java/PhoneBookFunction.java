@@ -18,6 +18,9 @@ public class PhoneBookFunction{
 			email.add(collector.next());
 			System.out.println("Enter phoneNumber: ");
 			phoneBook.add(collector.next());
+			System.out.println("Do you want to continue");
+			String ifUserWantToContinue = collector.next();
+			if(ifUserWantToContinue.equals("yes"))phoneBookOption();
 		}
 	}
 	public void removeContact(){
@@ -36,6 +39,9 @@ public class PhoneBookFunction{
 			}
 			if(counter<firstName.size()-1)System.out.println("Can,t delete a contact that is not in the phone book input correct names next time");
 		}
+			System.out.println("Do you want to continue");
+			String ifUserWantToContinue = collector.next();
+			if(ifUserWantToContinue.equals("yes"))phoneBookOption();
 	}
 	public void findContactByFirstName(){
 		System.out.println("Enter the first name of the contact: ");
@@ -48,6 +54,9 @@ public class PhoneBookFunction{
 			}
 			if(counter == firstName.size()-1)System.out.print("Contact Not found");
 		}
+			System.out.println("Do you want to continue");
+			String ifUserWantToContinue = collector.next();
+			if(ifUserWantToContinue.equals("yes"))phoneBookOption();
 	}
 	public void findContactByLastName(){
 		System.out.println("Enter the last name of the contact: ");
@@ -60,6 +69,9 @@ public class PhoneBookFunction{
 			}
 			if(counter == firstName.size()-1)System.out.print("Contact Not found");
 		}
+			System.out.println("Do you want to continue");
+			String ifUserWantToContinue = collector.next();
+			if(ifUserWantToContinue.equals("yes"))phoneBookOption();
 	}
 	public void findContactByPhoneNumber(){
 		System.out.println("Enter phone number: ");
@@ -72,6 +84,9 @@ public class PhoneBookFunction{
 			}
 			if(counter == firstName.size()-1)System.out.print("Contact Not found");
 		}
+			System.out.println("Do you want to continue");
+			String ifUserWantToContinue = collector.next();
+			if(ifUserWantToContinue.equals("yes"))phoneBookOption();
 	}
 	public void editContact(){
 		System.out.println("Enter the first name of the contact: ");
@@ -93,6 +108,38 @@ public class PhoneBookFunction{
 				String newEmail = collector.next();
 				email.set(count,newEmail);
 			}	
-		}	
+		}
+			System.out.println("Do you want to continue");
+			String ifUserWantToContinue = collector.next();
+			if(ifUserWantToContinue.equals("yes"))phoneBookOption();	
 	}
+
+
+	public void phoneBookOption(){
+		String phoneBookOption = """
+			1 -> Add contact
+			2 -> Remove contact
+			3 -> Find Contact By phone number
+			4 -> Find Contact By first name
+			5 -> Find Contact By last name
+			6 -> Exit  
+		""";
+			System.out.println(phoneBookOption);
+			int userinput = collector.nextInt();
+		switch(userinput){
+			case 1: addContact();
+			break;
+			case 2: removeContact();
+			break;
+			case 3: findContactByPhoneNumber();
+			break;
+			case 4: findContactByFirstName();
+			break;
+			case 5: findContactByLastName();
+			break;
+			case 6: System.out.println("Exit");
+		}
+	}
+
+	
 }	
