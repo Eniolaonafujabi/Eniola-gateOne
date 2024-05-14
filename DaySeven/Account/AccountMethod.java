@@ -5,12 +5,14 @@ public class AccountMethod{
 	ArrayList<String> firstName = new ArrayList<String>();
 	ArrayList<String> lastName = new ArrayList<String>();
 	ArrayList<String> pin = new ArrayList<String>();
-	public void createAccount(){
+	ArrayList<Double> balance = new ArrayList<Double>();
+ 	public void createAccount(){
 		System.out.println("Enter Account first name: ");
 		firstName.add(collector.next());
 		System.out.println("Enter Account last name: ");
 		lastName.add(collector.next());
 		createPin();
+		balance.add(0.0);
 	}
 	public void createPin(){
 		do{
@@ -46,8 +48,9 @@ public class AccountMethod{
 		String pinInputed = collector.next();
 		int counter = 0;
 		for(int count = 0; count<firstName.size();count++){
-			
-
+			if(firstName.get(counter).equals(accountFirstName)&&pin.get(counter).equals(pinInputed)){
+					
+			}	
 		}		
 	}
 }
