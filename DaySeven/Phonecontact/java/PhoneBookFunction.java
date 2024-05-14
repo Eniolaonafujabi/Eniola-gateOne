@@ -49,7 +49,7 @@ public class PhoneBookFunction{
 		int counter = 0;
 		for(int count = 0; count<firstName.size();count++){
 			if(firstName.get(count).equals(firstNameOfContactToSearchfor)){
-				System.out.printf("First Name: %s%nLast Name: %s%nPhone Number: %d%nEmail: %s%n",firstName.get(count),lastName.get(count),phoneBook.get(count),email.get(count));
+				System.out.printf("First Name: %s%nLast Name: %s%nPhone Number: %s%nEmail: %s%n",firstName.get(count),lastName.get(count),phoneBook.get(count),email.get(count));
 				counter++;
 			}
 			if(counter == firstName.size()-1)System.out.print("Contact Not found");
@@ -64,7 +64,7 @@ public class PhoneBookFunction{
 		int counter = 0;
 		for(int count = 0; count<lastName.size();count++){
 			if(lastName.get(count).equals(lastNameOfContactToSearchFor)){
-				System.out.printf("First Name: %s%nLast Name: %s%nPhone Number: %d%nEmail: %s%n",firstName.get(count),lastName.get(count),phoneBook.get(count),email.get(count));
+				System.out.printf("First Name: %s%nLast Name: %s%nPhone Number: %s%nEmail: %s%n",firstName.get(count),lastName.get(count),phoneBook.get(count),email.get(count));
 				counter++;
 			}
 			if(counter == firstName.size()-1)System.out.print("Contact Not found");
@@ -79,7 +79,7 @@ public class PhoneBookFunction{
 		int counter = 0;
 		for(int count = 0; count<lastName.size();count++){
 			if(phoneBook.get(count).equals(phoneNumberCheacking)){
-				System.out.printf("First Name: %s%nLast Name: %s%nPhone Number: %d%nEmail: %s%n",firstName.get(count),lastName.get(count),phoneBook.get(count),email.get(count));
+				System.out.printf("First Name: %s%nLast Name: %s%nPhone Number: %s%nEmail: %s%n",firstName.get(count),lastName.get(count),phoneBook.get(count),email.get(count));
 				counter++;
 			}
 			if(counter == firstName.size()-1)System.out.print("Contact Not found");
