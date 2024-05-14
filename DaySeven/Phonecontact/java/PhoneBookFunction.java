@@ -18,10 +18,10 @@ public class PhoneBookFunction{
 			email.add(collector.next());
 			System.out.println("Enter phoneNumber: ");
 			phoneBook.add(collector.next());
+		}
 			System.out.println("Do you want to continue");
 			String ifUserWantToContinue = collector.next();
 			if(ifUserWantToContinue.equals("yes"))phoneBookOption();
-		}
 	}
 	public void removeContact(){
 		System.out.println("Enter the first name of the contact: ");
