@@ -13,14 +13,21 @@ public class AccountMethod{
 		lastName.add(collector.next());
 		createPin();
 		balance.add(0.0);
+			System.out.println("Do you want to continue");
+			String ifUserWantToContinue = collector.next();
+			if(ifUserWantToContinue.equals("yes"))atmMachineOption();
+			if(ifUserWantToContinue.equals("no"))System.out.println("EXIT");
 	}
 
 	public void createPin(){
+		String newPin = "";
+		int length = newPin.length();
 		do{
 		System.out.println("Create new pin Enter only 4 digit: ");
-		String newPin = collector.next();
-		if(newpin.length()==4)pin.add(newPin);
-		while(newpin.length()==4);
+		newPin = collector.next();
+		if(length== 4)pin.add(newPin);
+		}
+		while(length==4);
 	}
 
 	public void changePin(){
@@ -29,14 +36,21 @@ public class AccountMethod{
 		System.out.println("Enter your pin: ");
 		String pinInputed = collector.next();
 		for(int count = 0; count<firstName.size();count++){
+			String newPin = "";
+			int length = newPin.length();
 			if(firstName.get(count).equals(accountFirstName)&&pin.get(count).equals(pinInputed)){
 				do{
 					System.out.println("Create new pin Enter only 4 digit: ");
-					String newPin = collector.next();
-					if(newpin.length()==4)pin.set(count,newPin);
-				while(newpin.length()==4);
+					newPin = collector.next();
+					if(length==4)pin.set(count,newPin);
+				}
+				while(length==4);
 			}
 		}
+			System.out.println("Do you want to continue");
+			String ifUserWantToContinue = collector.next();
+			if(ifUserWantToContinue.equals("yes"))atmMachineOption();
+			if(ifUserWantToContinue.equals("no"))System.out.println("EXIT");
 	}
 
 	public void closeAccount(){
@@ -44,19 +58,23 @@ public class AccountMethod{
 		String accountFirstName = collector.next();
 		System.out.println("Enter your account last name: ");
 		String accountLastName = collector.next();
-		for(int count = 0; count<firstName.size();count){
+		for(int count = 0; count<firstName.size();count++){
 			if(firstName.get(count).equals(accountFirstName)){
 				System.out.println("Enter pin");
 				String pinInputed = collector.next();
 				for(int counter = 0; counter<pin.size();counter++){
 					if(pin.get(count).equals(pinInputed)){
-						firstName.remove(count)
-						lastName.remove(count)
+						firstName.remove(count);
+						lastName.remove(count);
 						pin.remove(count);	
 					}
 				}
 			}	
 		}
+			System.out.println("Do you want to continue");
+			String ifUserWantToContinue = collector.next();
+			if(ifUserWantToContinue.equals("yes"))atmMachineOption();
+			if(ifUserWantToContinue.equals("no"))System.out.println("EXIT");
 	}
 
 	public void depositMoney(){
@@ -68,9 +86,13 @@ public class AccountMethod{
 			if(firstName.get(count).equals(accountFirstName)&&pin.get(count).equals(pinInputed)){
 				System.out.println("How much do you want to deposit: ");
 				double moneyDeposited = collector.nextDouble();
-				if(moneyDeposited>0)balance.set(counter,moneyDeposited+balance.get(count));		
+				if(moneyDeposited>0)balance.set(count,moneyDeposited+balance.get(count));		
 			}	
-		}		
+		}	
+			System.out.println("Do you want to continue");
+			String ifUserWantToContinue = collector.next();
+			if(ifUserWantToContinue.equals("yes"))atmMachineOption();
+			if(ifUserWantToContinue.equals("no"))System.out.println("EXIT");	
 	}
 
 	public void withdrawMoney(){
@@ -82,9 +104,13 @@ public class AccountMethod{
 			if(firstName.get(count).equals(accountFirstName)&&pin.get(count).equals(pinInputed)){
 				System.out.println("How much do you want to withdraw: ");
 				double moneywithdraw = collector.nextDouble();
-				if(moneydraw<=balance.get(count))balance.set(counter,moneywithdraw-balance.get(count));		
+				if(moneywithdraw<=balance.get(count))balance.set(count,moneywithdraw-balance.get(count));		
 			}	
-		}		
+		}
+			System.out.println("Do you want to continue");
+			String ifUserWantToContinue = collector.next();
+			if(ifUserWantToContinue.equals("yes"))atmMachineOption();
+			if(ifUserWantToContinue.equals("no"))System.out.println("EXIT");		
 	}
 
 	public void checkBalance(){
@@ -97,6 +123,10 @@ public class AccountMethod{
 				System.out.println(balance.get(count));
 			}
 		}
+			System.out.println("Do you want to continue");
+			String ifUserWantToContinue = collector.next();
+			if(ifUserWantToContinue.equals("yes"))atmMachineOption();
+			if(ifUserWantToContinue.equals("no"))System.out.println("EXIT");
 	}
 
 	public void transfer(){
@@ -115,7 +145,7 @@ public class AccountMethod{
 				double transfer = collector.nextDouble();
 				if(transfer>balance.get(count))System.out.println("Balance not enough ");
 				if(transfer<=balance.get(count)){
-					balance.set(count,balance.get(count)-transfer)
+					balance.set(count,balance.get(count)-transfer);
 					for(int counter = 0; counter<firstName.size();counter++){
 						if(firstName.get(counter).equals(firstNameTransfer)&&lastName.get(counter).equals(secondNameTransfer)){
 							balance.set(counter,balance.get(counter)+transfer);
@@ -128,7 +158,41 @@ public class AccountMethod{
 					}
 				}		
 			}	
-		}		
+		}	
+			System.out.println("Do you want to continue");
+			String ifUserWantToContinue = collector.next();
+			if(ifUserWantToContinue.equals("yes"))atmMachineOption();
+			if(ifUserWantToContinue.equals("no"))System.out.println("EXIT");	
 	}
-s
+	public void atmMachineOption(){
+		String machineOption = """
+			1 -> Create Account
+			2 -> Close Account
+			3 -> Deposit Money
+			4 -> Withdraw Money
+			5 -> Check Account Balance
+			6 -> Transfer
+			7 -> Change pin
+			8 -> Exit  
+		""";
+			System.out.println(machineOption);
+			int userinput = collector.nextInt();
+		switch(userinput){
+			case 1: createAccount();
+			break;
+			case 2: closeAccount();
+			break;
+			case 3: depositMoney();
+			break;
+			case 4: withdrawMoney();
+			break;
+			case 5: checkBalance();
+			break;
+			case 6: transfer();
+			break;
+			case 7: changePin();
+			break;
+			case 8: System.out.println("Exit");
+		}
+	}
 }
