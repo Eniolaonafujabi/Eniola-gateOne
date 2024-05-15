@@ -20,14 +20,14 @@ public class AccountMethod{
 	}
 
 	public void createPin(){
-		String newPin = "";
-		int length = newPin.length();
-		do{
+		System.out.println("Create new pin Enter only 4 digit: ");
+		String newPin = collector.next();
+		if(newPin.length()==4)pin.add(newPin);
+		while(newPin.length()!=4){
 		System.out.println("Create new pin Enter only 4 digit: ");
 		newPin = collector.next();
-		if(length== 4)pin.add(newPin);
+		if(newPin.length()==4)pin.add(newPin);
 		}
-		while(length==4);
 	}
 
 	public void changePin(){
@@ -36,15 +36,13 @@ public class AccountMethod{
 		System.out.println("Enter your pin: ");
 		String pinInputed = collector.next();
 		for(int count = 0; count<firstName.size();count++){
-			String newPin = "";
-			int length = newPin.length();
-			if(firstName.get(count).equals(accountFirstName)&&pin.get(count).equals(pinInputed)){
-				do{
-					System.out.println("Create new pin Enter only 4 digit: ");
-					newPin = collector.next();
-					if(length==4)pin.set(count,newPin);
-				}
-				while(length==4);
+			System.out.println("Create new pin Enter only 4 digit: ");
+			String newPin = collector.next();
+			if(newPin.length()==4)pin.add(newPin);
+			while(newPin.length()!=4){
+				System.out.println("Create new pin Enter only 4 digit: ");
+				newPin = collector.next();
+			if(newPin.length()==4)pin.add(newPin);
 			}
 		}
 			System.out.println("Do you want to continue");
