@@ -29,10 +29,12 @@ public class PhoneBookFunction{
 		String firstNameOfContactToBeDeleted = collector.next();
 		System.out.println("Enter the last name of the contact: ");
 		String lastNameOfContactToBeDeleted = collector.next();
+		System.out.println("Enter the  contact: ");
+		String contactInputed = collector.next();
 		int counter = firstName.size()-1;
-		//if(firstName.size() == 0)System.out.println("Can,t delete a contact that is not in the phone book input correct names next time");
+		if(firstName.size() == 0)System.out.println("Can,t delete a contact that is not in the phone book input correct names next time");
 		for(int count = 0; count<firstName.size();count++){
-			if(firstName.get(count).equals(firstNameOfContactToBeDeleted) && lastName.get(count).equals(lastNameOfContactToBeDeleted)){
+			if(phoneBook.get(count).equals(contactInputed)){
 				firstName.remove(count);
 				lastName.remove(count);
 				phoneBook.remove(count);
