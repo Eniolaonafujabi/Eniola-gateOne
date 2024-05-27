@@ -21,11 +21,12 @@ public class Sort{
 		int[] sorted = sorting(number);
 		int[] position = new int[number.length];
 		int grades = 0;
+		int count2 = -1;
 		for(int count = 0; count<number.length;count++){
-			for(int count1 = 0; count1<number.length;count1++){
+			for(int count1 = count2+1; count1<number.length;count1++){
 				if(sorted[count] == number[count1]){
 					position[count1] = grades+=1;
-								
+					count2++;			
 				}
 			}
 		}

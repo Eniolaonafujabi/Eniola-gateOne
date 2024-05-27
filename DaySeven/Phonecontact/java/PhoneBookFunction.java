@@ -21,8 +21,8 @@ public class PhoneBookFunction{
 		}
 			System.out.println("Do you want to continue");
 			String ifUserWantToContinue = collector.next();
-			if(ifUserWantToContinue.equals("yes"))phoneBookOption();
-			if(ifUserWantToContinue.equals("no"))System.out.println("EXIT");
+			if(ifUserWantToContinue.equalsIgnoreCase("yes"))phoneBookOption();
+			if(ifUserWantToContinue.equalsIgnoreCase("no"))System.out.println("EXIT");
 	}
 	public void removeContact(){
 		System.out.println("Enter the first name of the contact: ");
@@ -45,8 +45,8 @@ public class PhoneBookFunction{
 			if(counter==firstName.size()-1)System.out.println("Can,t delete a contact that is not in the phone book input correct names next time");
 			System.out.println("Do you want to continue");
 			String ifUserWantToContinue = collector.next();
-			if(ifUserWantToContinue.equals("yes"))phoneBookOption();
-			if(ifUserWantToContinue.equals("no"))System.out.println("EXIT");
+			if(ifUserWantToContinue.equalsIgnoreCase("yes"))phoneBookOption();
+			if(ifUserWantToContinue.equalsIgnoreCase("no"))System.out.println("EXIT");
 	}
 	public void findContactByFirstName(){
 		System.out.println("Enter the first name of the contact: ");
@@ -62,8 +62,8 @@ public class PhoneBookFunction{
 			if(counter == firstName.size()-1)System.out.println("Contact Not found");
 			System.out.println("Do you want to continue");
 			String ifUserWantToContinue = collector.next();
-			if(ifUserWantToContinue.equals("yes"))phoneBookOption();
-			if(ifUserWantToContinue.equals("no"))System.out.println("EXIT");
+			if(ifUserWantToContinue.equalsIgnoreCase("yes"))phoneBookOption();
+			if(ifUserWantToContinue.equalsIgnoreCase("no"))System.out.println("EXIT");
 	}
 	public void findContactByLastName(){
 		System.out.println("Enter the last name of the contact: ");
@@ -79,8 +79,8 @@ public class PhoneBookFunction{
 			if(counter == firstName.size()-1)System.out.println("Contact Not found");
 			System.out.println("Do you want to continue");
 			String ifUserWantToContinue = collector.next();
-			if(ifUserWantToContinue.equals("yes"))phoneBookOption();
-			if(ifUserWantToContinue.equals("no"))System.out.println("EXIT");
+			if(ifUserWantToContinue.equalsIgnoreCase("yes"))phoneBookOption();
+			if(ifUserWantToContinue.equalsIgnoreCase("no"))System.out.println("EXIT");
 	}
 	public void findContactByPhoneNumber(){
 		System.out.println("Enter phone number: ");
@@ -96,8 +96,8 @@ public class PhoneBookFunction{
 			if(counter == firstName.size()-1)System.out.println("Contact Not found");
 			System.out.println("Do you want to continue");
 			String ifUserWantToContinue = collector.next();
-			if(ifUserWantToContinue.equals("yes"))phoneBookOption();
-			if(ifUserWantToContinue.equals("no"))System.out.println("EXIT");
+			if(ifUserWantToContinue.equalsIgnoreCase("yes"))phoneBookOption();
+			if(ifUserWantToContinue.equalsIgnoreCase("no"))System.out.println("EXIT");
 	}
 	public void editContact(){
 		System.out.println("Enter the first name of the contact: ");
@@ -125,10 +125,22 @@ public class PhoneBookFunction{
 			if(counter == firstName.size()-1)System.out.println("Contact Not found");
 			System.out.println("Do you want to continue");
 			String ifUserWantToContinue = collector.next();
-			if(ifUserWantToContinue.equals("yes"))phoneBookOption();	
-			if(ifUserWantToContinue.equals("no"))System.out.println("EXIT");
+			if(ifUserWantToContinue.equalsIgnoreCase("yes"))phoneBookOption();	
+			if(ifUserWantToContinue.equalsIgnoreCase("no"))System.out.println("EXIT");
 	}
 
+	public void searchAllContact(){
+		for(int count = 0; count<firstName.size();count++){
+		System.out.println(firstName.get(count));
+		System.out.println(lastName.get(count));
+		System.out.println(email.get(count));
+		System.out.println(phoneBook.get(count));
+		}
+			System.out.println("Do you want to continue");
+			String ifUserWantToContinue = collector.next();
+			if(ifUserWantToContinue.equalsIgnoreCase("yes"))phoneBookOption();	
+			if(ifUserWantToContinue.equalsIgnoreCase("no"))System.out.println("EXIT");
+	}
 
 	public void phoneBookOption(){
 		String phoneBookOption = """
@@ -137,7 +149,8 @@ public class PhoneBookFunction{
 			3 -> Find Contact By phone number
 			4 -> Find Contact By first name
 			5 -> Find Contact By last name
-			6 -> Exit  
+			6 -> Show all contact 			
+			7 -> Exit  
 		""";
 			System.out.println(phoneBookOption);
 			int userinput = collector.nextInt();
@@ -152,7 +165,9 @@ public class PhoneBookFunction{
 			break;
 			case 5: findContactByLastName();
 			break;
-			case 6: System.out.println("Exit");
+			case 6: searchAllContact();
+			break;
+			case 7: System.out.println("Exit");
 		}
 	}
 
